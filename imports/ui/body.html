@@ -1,0 +1,25 @@
+<body>
+  <div class="container">
+    <h1>Images Left: {{> other}}</h1>
+    
+    {{> image}}  
+    
+  </div>
+</body>
+
+<template name="image">
+  <div class="row">
+    {{#each img}}
+      <div class="col-xs-12 col-md-2" id="{{_id}}">
+        <div class="thumbnail">
+          <h1> {{imgalt}} </h1>
+          <h4> Rating: {{rating}} </h4>
+          <hr/>
+          <img src=" {{imgsrc}} " alt=" {{imgalt}} " class="img-thumbnail" />
+          <p>Rate this pic: {{> starsRating id=_id rating=rating class='starRate' mutable=true size='lg'}}</p>
+          <button class="js-del-img btn btn-danger"> Delete </button>    
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</template>
